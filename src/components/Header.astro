@@ -1,0 +1,34 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/blog", label: "blog" },
+  { href: "/about", label: "about" },
+  { href: "/contact", label: "contact" },
+];
+---
+
+<header class="border-b border-border py-4 px-6 md:px-12">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between">
+    <a href="/" class="font-mono text-accent hover:text-accent-light transition-colors group">
+      <span class="text-gray-500 group-hover:text-gray-400">$</span> wforbes.dev
+    </a>
+
+    <div class="flex items-center gap-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-mono text-sm transition-colors",
+            currentPath.startsWith(link.href)
+              ? "text-accent"
+              : "text-gray-400 hover:text-gray-100",
+          ]}
+        >
+          {currentPath.startsWith(link.href) && <span class="text-accent">{">"} </span>}
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>

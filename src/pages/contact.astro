@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const contacts = [
+  {
+    label: "email",
+    value: "wforbes87@gmail.com",
+    href: "mailto:wforbes87@gmail.com",
+    description: "Best way to reach me",
+  },
+  {
+    label: "linkedin",
+    value: "linkedin.com/in/wforbes87",
+    href: "https://linkedin.com/in/wforbes87",
+    description: "Professional network",
+  },
+  {
+    label: "github",
+    value: "github.com/wforbes",
+    href: "https://github.com/wforbes",
+    description: "Code and projects",
+  },
+  {
+    label: "bluesky",
+    value: "wforbes.dev",
+    href: "https://bsky.app/profile/wforbes.dev",
+    description: "Social posts",
+  },
+  {
+    label: "x",
+    value: "@wforbes87",
+    href: "https://x.com/wforbes87",
+    description: "Occasional thoughts",
+  },
+  {
+    label: "medium",
+    value: "@wforbes",
+    href: "https://medium.com/@wforbes",
+    description: "Long-form writing",
+  },
+];
+---
+
+<BaseLayout
+  title="Contact | Will Forbes"
+  description="Get in touch with Will Forbes — software engineer specializing in backend systems, Node.js, and TypeScript."
+>
+  <section class="max-w-5xl mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-12">
+    <!-- Page heading -->
+    <div class="fade-up" style="animation-delay: 0.1s;">
+      <div class="font-mono text-sm text-gray-500 mb-4">
+        <span class="text-gray-600">$</span> cat ./contact.json
+      </div>
+      <h1 class="font-mono text-3xl md:text-4xl font-bold text-gray-100">Contact</h1>
+      <div class="h-px bg-accent mt-3 mb-8 w-32"></div>
+    </div>
+
+    <div class="fade-up max-w-3xl" style="animation-delay: 0.3s;">
+      <p class="text-gray-300 leading-relaxed mb-8">
+        I'm open to new opportunities, collaborations, and conversations about
+        software engineering. Feel free to reach out through any of the channels below.
+      </p>
+    </div>
+
+    <!-- Contact links as terminal output -->
+    <div class="terminal-box rounded-lg p-6 max-w-3xl fade-up" data-title="contacts" style="animation-delay: 0.5s;">
+      <div class="font-mono text-sm text-gray-500 mb-4">
+        <span class="text-gray-600">{`{`}</span>
+      </div>
+
+      <div class="space-y-4 pl-4">
+        {contacts.map((contact, i) => (
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+            <span class="font-mono text-sm text-accent shrink-0 w-20">
+              "{contact.label}":
+            </span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+              <a
+                href={contact.href}
+                target={contact.href.startsWith("mailto") ? undefined : "_blank"}
+                rel={contact.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                class="font-mono text-sm text-gray-100 hover:text-accent-light transition-colors"
+              >
+                "{contact.value}"
+              </a>
+              <span class="font-mono text-xs text-gray-600">
+                // {contact.description}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="font-mono text-sm text-gray-500 mt-4">
+        <span class="text-gray-600">{`}`}</span>
+      </div>
+    </div>
+
+    <!-- Availability note -->
+    <div class="mt-8 fade-up" style="animation-delay: 0.7s;">
+      <p class="font-mono text-sm text-gray-500">
+        <span class="text-gray-600">&gt;</span> Currently
+        <span class="text-accent">open to opportunities</span>
+        — remote or Southern California based
+      </p>
+    </div>
+  </section>
+</BaseLayout>

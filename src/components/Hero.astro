@@ -1,0 +1,79 @@
+---
+const highlights = [
+  { metric: "23→1", label: "microservices consolidated" },
+  { metric: "$20K/mo", label: "hosting costs saved" },
+  { metric: "99.9%", label: "uptime maintained" },
+  { metric: "40%", label: "faster deployments" },
+];
+---
+
+<section class="max-w-5xl mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-12">
+  <!-- Name and title block -->
+  <div class="fade-up" style="animation-delay: 0.1s;">
+    <h1 class="font-mono text-4xl md:text-5xl font-bold text-gray-100 tracking-tight">
+      Will Forbes
+    </h1>
+    <div class="h-px bg-accent mt-3 mb-4 w-48 md:w-72"></div>
+  </div>
+
+  <div class="fade-up" style="animation-delay: 0.3s;">
+    <p class="font-mono text-gray-400 text-lg md:text-xl">
+      <span class="text-gray-600">//</span> Backend-Focused Full Stack Engineer
+    </p>
+  </div>
+
+  <!-- AI Engineering callout -->
+  <div class="mt-6 fade-up" style="animation-delay: 0.6s;">
+    <p class="font-mono text-base md:text-lg text-gray-500">
+      <span class="text-gray-600">&gt;</span> Currently exploring
+      <span class="text-accent-light">AI Engineering</span>
+      — building applications powered by foundation models<span class="cursor-blink"></span>
+    </p>
+  </div>
+
+  <!-- Career highlights -->
+  <div class="mt-12 fade-up" style="animation-delay: 1.2s;">
+    <div class="terminal-box rounded-lg p-6" data-title="highlights.ts">
+      <div class="font-mono text-sm">
+        <span class="text-gray-500">const</span>
+        <span class="text-accent"> highlights</span>
+        <span class="text-gray-500"> = [</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 mb-2">
+        {highlights.map((item) => (
+          <div class="flex items-baseline gap-3 pl-4">
+            <span class="font-mono text-xl md:text-2xl font-bold text-gray-100">
+              {item.metric}
+            </span>
+            <span class="font-mono text-sm text-gray-400">{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="font-mono text-sm text-gray-500">];</div>
+    </div>
+  </div>
+
+  <!-- CTA links -->
+  <div class="mt-8 flex gap-6 fade-up" style="animation-delay: 1.5s;">
+    <a
+      href="/blog"
+      class="font-mono text-sm text-accent hover:text-accent-light transition-colors"
+    >
+      [read the blog]
+    </a>
+    <a
+      href="/about"
+      class="font-mono text-sm text-gray-400 hover:text-gray-100 transition-colors"
+    >
+      [about me]
+    </a>
+    <a
+      href="/contact"
+      class="font-mono text-sm text-gray-400 hover:text-gray-100 transition-colors"
+    >
+      [get in touch]
+    </a>
+  </div>
+</section>

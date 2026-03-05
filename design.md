@@ -190,10 +190,10 @@ GitHub repo → Coolify detects push → Docker build (multi-stage) → Nginx se
 - [x] 5. Set up `.gitignore`
 
 ### Phase 2: Core Pages
-- [ ] 6. Build `Header` and `Footer` components
-- [ ] 7. Build the home page (`/`) with hero, highlights, and latest posts sections
-- [ ] 8. Build the about page (`/about`)
-- [ ] 9. Build the contact page (`/contact`)
+- [x] 6. Build `Header` and `Footer` components
+- [x] 7. Build the home page (`/`) with hero, highlights, and latest posts sections
+- [x] 8. Build the about page (`/about`)
+- [x] 9. Build the contact page (`/contact`)
 
 ### Phase 3: Blog System
 - [ ] 10. Define blog content collection schema
