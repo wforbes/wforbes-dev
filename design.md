@@ -196,11 +196,11 @@ GitHub repo → Coolify detects push → Docker build (multi-stage) → Nginx se
 - [x] 9. Build the contact page (`/contact`)
 
 ### Phase 3: Blog System
-- [ ] 10. Define blog content collection schema
-- [ ] 11. Build blog listing page (`/blog`)
-- [ ] 12. Build blog post layout and dynamic route (`/blog/[slug]`)
-- [ ] 13. Create a starter "Hello World" blog post in MDX
-- [ ] 14. Add tag-based filtering
+- [x] 10. Define blog content collection schema
+- [x] 11. Build blog listing page (`/blog`)
+- [x] 12. Build blog post layout and dynamic route (`/blog/[slug]`)
+- [x] 13. Create a starter "Hello World" blog post in MDX
+- [x] 14. Add tag-based filtering
 
 ### Phase 4: Polish
 - [ ] 15. Add dark/light mode toggle

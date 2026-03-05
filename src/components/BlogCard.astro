@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags: string[];
+  slug: string;
+}
+
+const { title, description, pubDate, tags, slug } = Astro.props;
+
+const formattedDate = pubDate.toISOString().split("T")[0];
+---
+
+<a href={`/blog/${slug}`} class="block terminal-box rounded-lg p-5 hover:border-accent/50 transition-colors group">
+  <div class="flex items-baseline justify-between mb-2">
+    <h3 class="font-mono text-gray-100 font-medium group-hover:text-accent-light transition-colors">
+      {title}
+    </h3>
+    <span class="font-mono text-xs text-gray-600 shrink-0 ml-4">{formattedDate}</span>
+  </div>
+
+  <p class="text-gray-400 text-sm mb-3">{description}</p>
+
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span class="font-mono text-xs text-accent-dim border border-accent-dim/30 rounded px-2 py-0.5">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</a>
