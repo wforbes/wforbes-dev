@@ -72,9 +72,9 @@ wforbes-dev/
 │   │       ├── index.astro        # Blog listing page
 │   │       └── [...slug].astro    # Dynamic blog post route
 │   ├── content/
-│   │   ├── config.ts        # Content collection schema definitions
 │   │   └── blog/            # MDX blog posts live here
 │   │       └── hello-world.mdx    # Starter post
+│   ├── content.config.ts    # Content collection schema (Astro 5 location)
 │   └── styles/
 │       └── global.css       # Tailwind directives + global styles
 ├── public/
@@ -84,8 +84,7 @@ wforbes-dev/
 ├── Dockerfile               # Multi-stage: build Astro, serve with Nginx
 ├── .dockerignore             # Exclude node_modules, .git, etc.
 ├── nginx.conf               # Nginx config for serving static files
-├── astro.config.mjs         # Astro configuration
-├── tailwind.config.mjs      # Tailwind configuration
+├── astro.config.mjs         # Astro configuration (Tailwind via Vite plugin, MDX integration)
 ├── tsconfig.json            # TypeScript configuration
 ├── package.json
 ├── .gitignore
@@ -124,11 +123,13 @@ wforbes-dev/
 ## Blog Content Collection Schema
 
 ```typescript
-// src/content/config.ts
-import { defineCollection, z } from 'astro:content';
+// src/content.config.ts (Astro 5 location)
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -145,11 +146,16 @@ export const collections = { blog };
 
 ## Visual Design Direction
 
-- **Theme**: Clean, modern, professional — dark mode by default with light mode toggle
-- **Typography**: System font stack or a clean sans-serif (Inter, or similar)
-- **Color palette**: Neutral base with a single accent color (blue tones pair well with tech/engineering)
-- **Spacing**: Generous whitespace, not cramped
+**Aesthetic**: Technical / Engineering — the site should feel like it was built by someone who builds things.
+
+- **Theme**: Dark mode by default (deep charcoal/near-black), with light mode toggle
+- **Typography**: Monospace display font (e.g., JetBrains Mono, Fira Code) paired with a clean geometric sans-serif body font. Code-flavored headings, readable body text.
+- **Color palette**: Dark neutral base (`gray-950`/`gray-900`), with a sharp terminal-green or electric-blue accent for emphasis. Avoid pastels — use high-contrast, purposeful color hits.
+- **Layout**: Grid-based, structured. Terminal-inspired UI elements (bordered containers, prompt-style indicators like `>` or `$`, subtle grid lines). Asymmetric but organized.
+- **Micro-interactions**: Cursor blink effects, typewriter-style text reveals on hero, subtle code syntax highlighting aesthetics in UI chrome.
+- **Spacing**: Structured and deliberate — generous but grid-aligned, not loose
 - **Responsive**: Mobile-first, fully responsive
+- **Differentiation**: The "memorable thing" is that the site itself demonstrates engineering craft — structured, precise, and intentional in every detail
 
 ## Deployment Architecture (Coolify + Docker)
 
@@ -177,37 +183,37 @@ GitHub repo → Coolify detects push → Docker build (multi-stage) → Nginx se
 ## Implementation Steps
 
 ### Phase 1: Project Scaffolding
-1. Initialize Astro project with TypeScript
-2. Install and configure Tailwind CSS integration
-3. Install and configure MDX integration
-4. Set up base layout and global styles
-5. Set up `.gitignore`
+- [x] 1. Initialize Astro project with TypeScript
+- [x] 2. Install and configure Tailwind CSS integration
+- [x] 3. Install and configure MDX integration
+- [x] 4. Set up base layout and global styles
+- [x] 5. Set up `.gitignore`
 
 ### Phase 2: Core Pages
-6. Build `Header` and `Footer` components
-7. Build the home page (`/`) with hero, highlights, and latest posts sections
-8. Build the about page (`/about`)
-9. Build the contact page (`/contact`)
+- [ ] 6. Build `Header` and `Footer` components
+- [ ] 7. Build the home page (`/`) with hero, highlights, and latest posts sections
+- [ ] 8. Build the about page (`/about`)
+- [ ] 9. Build the contact page (`/contact`)
 
 ### Phase 3: Blog System
-10. Define blog content collection schema
-11. Build blog listing page (`/blog`)
-12. Build blog post layout and dynamic route (`/blog/[slug]`)
-13. Create a starter "Hello World" blog post in MDX
-14. Add tag-based filtering
+- [ ] 10. Define blog content collection schema
+- [ ] 11. Build blog listing page (`/blog`)
+- [ ] 12. Build blog post layout and dynamic route (`/blog/[slug]`)
+- [ ] 13. Create a starter "Hello World" blog post in MDX
+- [ ] 14. Add tag-based filtering
 
 ### Phase 4: Polish
-15. Add dark/light mode toggle
-16. Add meta tags and Open Graph data for SEO
-17. Add favicon and any static assets
-18. Responsive design pass
+- [ ] 15. Add dark/light mode toggle
+- [ ] 16. Add meta tags and Open Graph data for SEO
+- [ ] 17. Add favicon and any static assets
+- [ ] 18. Responsive design pass
 
 ### Phase 5: Deployment
-19. Create `Dockerfile` (multi-stage: build Astro + serve with Nginx)
-20. Create `.dockerignore`
-21. Create `nginx.conf` for static file serving
-22. Push to GitHub, configure Coolify to deploy from repo
-23. Set custom domain and SSL in Coolify
+- [ ] 19. Create `Dockerfile` (multi-stage: build Astro + serve with Nginx)
+- [ ] 20. Create `.dockerignore`
+- [ ] 21. Create `nginx.conf` for static file serving
+- [ ] 22. Push to GitHub, configure Coolify to deploy from repo
+- [ ] 23. Set custom domain and SSL in Coolify
 
 ## Verification
 
