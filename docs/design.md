@@ -209,9 +209,9 @@ GitHub repo → Coolify detects push → Docker build (multi-stage) → Nginx se
 - [x] 18. Responsive design pass
 
 ### Phase 5: Deployment
-- [ ] 19. Create `Dockerfile` (multi-stage: build Astro + serve with Nginx)
-- [ ] 20. Create `.dockerignore`
-- [ ] 21. Create `nginx.conf` for static file serving
+- [x] 19. Create `Dockerfile` (multi-stage: build Astro + serve with Nginx)
+- [x] 20. Create `.dockerignore`
+- [x] 21. Create `nginx.conf` for static file serving
 - [ ] 22. Push to GitHub, configure Coolify to deploy from repo
 - [ ] 23. Set custom domain and SSL in Coolify
 
