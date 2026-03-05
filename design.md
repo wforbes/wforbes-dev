@@ -203,10 +203,10 @@ GitHub repo → Coolify detects push → Docker build (multi-stage) → Nginx se
 - [x] 14. Add tag-based filtering
 
 ### Phase 4: Polish
-- [ ] 15. Add dark/light mode toggle
-- [ ] 16. Add meta tags and Open Graph data for SEO
-- [ ] 17. Add favicon and any static assets
-- [ ] 18. Responsive design pass
+- [x] 15. Add dark/light mode toggle
+- [x] 16. Add meta tags and Open Graph data for SEO
+- [x] 17. Add favicon and any static assets
+- [x] 18. Responsive design pass
 
 ### Phase 5: Deployment
 - [ ] 19. Create `Dockerfile` (multi-stage: build Astro + serve with Nginx)

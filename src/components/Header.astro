@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
+
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -14,12 +16,12 @@ const navLinks = [
       <span class="text-gray-500 group-hover:text-gray-400">$</span> wforbes.dev
     </a>
 
-    <div class="flex items-center gap-6">
+    <div class="flex items-center gap-3 sm:gap-6">
       {navLinks.map((link) => (
         <a
           href={link.href}
           class:list={[
-            "font-mono text-sm transition-colors",
+            "font-mono text-xs sm:text-sm transition-colors",
             currentPath.startsWith(link.href)
               ? "text-accent"
               : "text-gray-400 hover:text-gray-100",
@@ -29,6 +31,7 @@ const navLinks = [
           {link.label}
         </a>
       ))}
+      <ThemeToggle />
     </div>
   </nav>
 </header>

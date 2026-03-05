@@ -1,0 +1,43 @@
+---
+// Dark/light mode toggle — renders a terminal-style button
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="font-mono text-sm text-gray-500 hover:text-accent transition-colors cursor-pointer"
+  aria-label="Toggle theme"
+>
+  <span id="theme-icon-dark" class="hidden">[ light ]</span>
+  <span id="theme-icon-light" class="hidden">[ dark ]</span>
+</button>
+
+<script is:inline>
+  (function () {
+    const toggle = document.getElementById("theme-toggle");
+    const iconDark = document.getElementById("theme-icon-dark");
+    const iconLight = document.getElementById("theme-icon-light");
+
+    function getTheme() {
+      const stored = localStorage.getItem("theme");
+      if (stored) return stored;
+      return "dark";
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.classList.toggle("light", theme === "light");
+      document.documentElement.classList.toggle("dark", theme === "dark");
+      iconDark.classList.toggle("hidden", theme !== "dark");
+      iconLight.classList.toggle("hidden", theme !== "light");
+    }
+
+    applyTheme(getTheme());
+
+    toggle.addEventListener("click", function () {
+      const current = getTheme();
+      const next = current === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
+    });
+  })();
+</script>

@@ -18,6 +18,73 @@ body {
   font-family: var(--font-body);
 }
 
+/* Light mode overrides */
+html.light {
+  --color-accent: #059669;
+  --color-accent-light: #047857;
+  --color-accent-dim: #a7f3d0;
+  --color-surface: #f3f4f6;
+  --color-border: #d1d5db;
+}
+
+html.light body {
+  background-color: #fafafa;
+  color: #1f2937;
+}
+
+/* Flip gray text scale for light mode */
+html.light .text-gray-100 { color: #111827; }
+html.light .text-gray-300 { color: #374151; }
+html.light .text-gray-400 { color: #4b5563; }
+html.light .text-gray-500 { color: #6b7280; }
+html.light .text-gray-600 { color: #9ca3af; }
+
+/* Fix accent-dim tags to be readable on light surfaces */
+html.light .text-accent-dim { color: #059669; }
+html.light .border-accent-dim\/30 { border-color: rgb(5 150 105 / 0.3); }
+
+/* Light mode header hover */
+html.light .hover\:text-gray-100:hover { color: #111827; }
+
+html.light .terminal-box {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+html.light .terminal-box::before {
+  background: #f3f4f6;
+}
+
+/* Light mode prose */
+html.light .prose-terminal {
+  color: #374151;
+}
+
+html.light .prose-terminal h2,
+html.light .prose-terminal h3,
+html.light .prose-terminal strong {
+  color: #111827;
+}
+
+html.light .prose-terminal code {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #059669;
+}
+
+html.light .prose-terminal pre {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+html.light .prose-terminal pre code {
+  color: #374151;
+}
+
+html.light .prose-terminal blockquote {
+  color: #6b7280;
+}
+
 /* Terminal cursor blink */
 @keyframes blink {
   0%, 100% { opacity: 1; }
